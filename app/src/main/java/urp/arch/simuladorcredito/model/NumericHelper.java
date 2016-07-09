@@ -26,9 +26,9 @@ public class NumericHelper {
 
     public float parseFloat(String text) {
         try {
-            Number n = ff.parse(text);
+            Number n = Float.parseFloat(text); // ff.parse :: Error on G3
             return n.floatValue();
-        } catch (ParseException e) {
+        }catch (Exception e) { // catch (ParseException e) {
             return 0f;
         }
     }

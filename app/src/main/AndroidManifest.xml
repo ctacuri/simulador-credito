@@ -7,8 +7,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,15 +18,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Simulador"
+            android:name=".SimuladorActivity"
             android:label="@string/title_activity_simulador"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="urp.arch.simuladorcredito.MainActivity" />
+
         </activity>
-        <activity android:name=".SimulacionCuotasActivity"></activity>
+        <activity
+            android:name=".SimulacionCuotasActivity"
+            android:configChanges="orientation|screenSize">
+        </activity>
     </application>
 
 </manifest>

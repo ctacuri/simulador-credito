@@ -11,39 +11,48 @@ public class Calculadora {
 
     public SimulacionCredito simularCredito(ParametrosCredito p) {
         SimulacionCredito sim = new SimulacionCredito();
-
-        sim.cuotaMensual = calcularCuota(p.tea,p.cuotas,p.monto, 30);
-
-        Calendar c = Calendar.getInstance();
-        c.setTime(p.fechaDesembolso); // inicio.
-
         Date inic = p.fechaDesembolso;
         Date venc = p.fechaVencimiento;
         float saldo = p.monto;
         Calendar month = Calendar.getInstance();
-        for (int i = 0; i < p.cuotas; i++) {
-            int dias = getDifferenceDays(inic, venc);
 
+        Calendar c = Calendar.getInstance();
+
+        c.setTime(p.fechaDesembolso); // inicio.
+        int cuotasFix = p.cuotas;
+        for (int i = 0; i < p.cuotas; i++) {
+            if ((p.cuotadobleJulio && c.get(Calendar.MONTH) == 6) ||
+                    (p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == 11)) {
+                cuotasFix++;
+            }
+            c.add(Calendar.MONTH, 1);
+        }
+        sim.cuotaMensual = calcularCuota(p.tea,cuotasFix,p.monto);
+
+        c.setTime(p.fechaDesembolso); // inicio.
+        for (int i = 0; i < p.cuotas; i++) {
+            //int dias = getDifferenceDays(inic, venc);
+            int dias = 30;
             SimulacionCuota cuota = new SimulacionCuota();
-            cuota.numero = i+1;
+            cuota.numero = i + 1;
             cuota.vencimiento = venc;
             cuota.dias = dias;
             cuota.interes = calcularInteresCuota(p.tea, saldo, dias);
             cuota.capital = sim.cuotaMensual - cuota.interes;
 
-            if ((true == p.cuotadobleJulio && c.get(Calendar.MONTH) == 6) ||
-                (true == p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == 11)) {
-                 cuota.capital += sim.cuotaMensual;
+            if ((p.cuotadobleJulio && c.get(Calendar.MONTH) == 6) ||
+                    (p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == 11)) {
+                cuota.capital += sim.cuotaMensual;
             }
 
-            if (cuota.capital > saldo) {
-                cuota.capital = saldo;
-            }
             cuota.saldo = saldo - cuota.capital;
             cuota.cuota = cuota.interes + cuota.capital;
 
             //agrega la cuouta
             sim.cuotas.add(cuota);
+
+            sim.totalIntereses += cuota.interes;
+            sim.totalPagar += cuota.interes + cuota.capital + cuota.comision + cuota.desgravamen + cuota.seguro;
 
             //avanza un mes
             saldo = cuota.saldo;
@@ -60,10 +69,10 @@ public class Calculadora {
         return (float) (Math.pow(1f + (tea / 100f), dias / 360f) - 1f) * 100f;
     }
 
-    private float calcularCuota(float tea, float cuotas, float monto, int dias) {
-        float tem = this.calcularTEM(tea, dias) / 100f;
+    private float calcularCuota(float tea, float cuotas, float monto) {
+        float tem = this.calcularTEM(tea, 30) / 100f;
 
-        float x = (float) Math.pow(1f + tem, cuotas); //TODO: sumar cuotas dobles por año (+2 cada 12)
+        float x = (float) Math.pow(1f + tem, cuotas);
         return monto * ((x * tem) / (x - 1f));
     }
 

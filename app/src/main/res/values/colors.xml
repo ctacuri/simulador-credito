@@ -2,6 +2,11 @@
 <resources>
     <color name="colorPrimary">#ffc107</color>
     <color name="colorPrimaryDark">#ffa000</color>
-    <color name="colorAccent">#ff7043</color>
     <color name="colorTableBorder">#bdbdbd</color>
+    <color name="colorPrimaryLight">#ffecb3</color>
+    <color name="colorAccent">#ff5722</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="colorMenuIconBackground">#ffd54f</color>
+    <color name="colorDivider">#B6B6B6</color>
 </resources>

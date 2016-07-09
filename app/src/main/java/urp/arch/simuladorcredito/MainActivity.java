@@ -1,7 +1,6 @@
 package urp.arch.simuladorcredito;
 
 import android.content.Intent;
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
             Log.i("HOME", creditType.toString() + " selected");
 
-            Intent intent = new Intent(this, Simulador.class);
+            Intent intent = new Intent(this, SimuladorActivity.class);
             intent.putExtra(TIPO_CREDITO, creditType.toString());
             this.startActivity(intent);
         }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,14 +11,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Simulador"
-    tools:showIn="@layout/activity_simulador">
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:onClick="layoutOnClick" >
+
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:stretchColumns="1">
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:id="@+id/tableLayout">
 
         <TableRow
             android:layout_width="match_parent"
@@ -56,7 +61,7 @@
                 android:id="@+id/simulador_tea"
                 android:layout_column="2"
                 android:textAlignment="textEnd"
-                android:text="39.29" />
+                android:text="11.27" />
         </TableRow>
 
         <TableRow
@@ -89,11 +94,12 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="date"
+                android:inputType="none"
                 android:ems="5"
                 android:id="@+id/simulador_desembolso"
                 android:layout_column="2"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textIsSelectable="false" />
 
         </TableRow>
         <TableRow
@@ -120,7 +126,9 @@
                 android:id="@+id/simulador_doble_diciembre" />
             </LinearLayout>
         </TableRow>
+        <!--
         <TableRow
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
@@ -137,17 +145,20 @@
                 android:layout_column="2"
                 android:textAlignment="textEnd" />
         </TableRow>
+        -->
     </TableLayout>
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
+        android:layout_height="wrap_content"
         android:stretchColumns="1"
-        >
+        android:layout_below="@+id/tableLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp">
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:minHeight="36dp"
             >
             <TextView
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -165,7 +176,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:minHeight="36dp">
             <TextView
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Total Intereses"
@@ -182,7 +193,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:minHeight="36dp">
             <TextView
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Total a pagar"
@@ -199,14 +210,15 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
+            android:layout_height="match_parent"
+            android:minHeight="24dp"></TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:text="Coutas"
+                android:text="Ver coutas"
                 android:id="@+id/button"
                 android:layout_column="1"
 
