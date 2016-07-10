@@ -222,7 +222,8 @@
                 android:id="@+id/button"
                 android:layout_column="1"
 
-                android:onClick="gotoCuotas" />
+                android:onClick="gotoCuotas"
+                android:background="@color/colorPrimary" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>
