@@ -33,6 +33,10 @@
             android:name=".SimulacionCuotasActivity"
             android:configChanges="orientation|screenSize">
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="04fcff6508230833863b400b84be57d69090b6ce" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
