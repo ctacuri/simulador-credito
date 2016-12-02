@@ -21,6 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -149,11 +152,17 @@ public class SimuladorActivity extends AppCompatActivity {
     void updateTotal(){
         ParametrosCredito p = readParameters();
 
+        Answers.getInstance().logCustom(new CustomEvent("Simulacion Realizada")
+                .putCustomAttribute("NumeroCuotas", p.cuotas)
+                .putCustomAttribute("MontoCredito", p.monto));
+
+
         //Calcular credito
         Calculadora calculadora = new Calculadora();
         SimulacionCredito sim = calculadora.simularCredito(p);
 
         Log.i("Simulacion", "cuotas:" + String.valueOf(sim.cuotas.size()) + " interes  capital   saldo   cuota");
+
         for (int i=0; i < p.cuotas;i++) {
             Log.i("Simulacion", "cuota[" + String.valueOf(i+1) + "," + String.valueOf(sim.cuotas.get(i).dias)
                     + "=" + String.format("%.2f %.2f %.2f %.2f",
