@@ -37,7 +37,6 @@ public class SimulacionCuotasActivity extends AppCompatActivity {
 
     private void showTable() {
 
-
         TableLayout tableLayout = (TableLayout) findViewById(R.id.simulador_table);
         tableLayout.removeAllViews();
 

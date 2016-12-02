@@ -6,8 +6,8 @@
     tools:context="urp.arch.simuladorcredito.MainActivity">
 
     <ImageButton
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/home_icon_width"
+        android:layout_height="@dimen/home_icon_height"
         android:id="@+id/imageButton0"
         android:clickable="true"
         android:onClick="selectCreditType"
@@ -19,12 +19,10 @@
         android:elevation="5dp"
         android:background="@color/background_material_light"
         android:foreground="?android:attr/selectableItemBackground"
-        android:layout_marginLeft="@dimen/home_icon_margin_top"
-        android:layout_marginRight="@dimen/home_icon_margin_top"
-        android:layout_marginTop="@dimen/home_icon_margin_top" />
+        android:layout_margin="@dimen/home_icon_margin_top" />
     <ImageButton
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/home_icon_width"
+        android:layout_height="@dimen/home_icon_height"
         android:id="@+id/imageButton1"
         android:clickable="false"
         android:tag="credito_hipotecario"
@@ -38,13 +36,10 @@
         android:layout_alignParentStart="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:tintMode="src_in"
-        android:layout_marginLeft="@dimen/home_icon_margin_top"
-        android:layout_marginRight="@dimen/home_icon_margin_top"
-        android:layout_marginTop="@dimen/home_icon_margin_top"
-        android:layout_marginBottom="@dimen/home_icon_margin_top" />
+        android:layout_margin="@dimen/home_icon_margin_top" />
     <ImageButton
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/home_icon_width"
+        android:layout_height="@dimen/home_icon_height"
         android:id="@+id/imageButton2"
         android:clickable="false"
         android:tag="credito_pyme"
@@ -61,8 +56,8 @@
         android:tintMode="src_in" />
 
     <ImageButton
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/home_icon_width"
+        android:layout_height="@dimen/home_icon_height"
         android:id="@+id/imageButton3"
         android:clickable="true"
         android:tag="credito_personal"
@@ -76,14 +71,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:layout_marginLeft="@dimen/home_icon_margin_top"
-        android:layout_marginRight="@dimen/home_icon_margin_top"
-        android:layout_marginTop="@dimen/home_icon_margin_top"
-        android:layout_marginBottom="@dimen/home_icon_margin_top" />
+        android:layout_margin="@dimen/home_icon_margin_top" />
 
     <ImageButton
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/home_icon_width"
+        android:layout_height="@dimen/home_icon_height"
         android:id="@+id/imageButton5"
         android:clickable="false"
         android:src="@drawable/credit_study"
@@ -100,8 +92,8 @@
         android:tintMode="src_in" />
 
     <ImageButton
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/home_icon_width"
+        android:layout_height="@dimen/home_icon_height"
         android:id="@+id/imageButton4"
         android:clickable="false"
         android:src="@drawable/credit_car"
