@@ -19,14 +19,16 @@ public class Calculadora {
         Calendar c = Calendar.getInstance();
 
         c.setTime(p.fechaDesembolso); // inicio.
+
         int cuotasFix = p.cuotas;
         for (int i = 0; i < p.cuotas; i++) {
-            if ((p.cuotadobleJulio && c.get(Calendar.MONTH) == 6) ||
-                    (p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == 11)) {
-                cuotasFix++;
+            if ((p.cuotadobleJulio && c.get(Calendar.MONTH) == Calendar.JULY) ||
+                    (p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == Calendar.DECEMBER)) {
+                //cuotasFix--;
             }
             c.add(Calendar.MONTH, 1);
         }
+
         sim.cuotaMensual = calcularCuota(p.tea,cuotasFix,p.monto);
 
         c.setTime(p.fechaDesembolso); // inicio.
@@ -37,15 +39,19 @@ public class Calculadora {
             cuota.numero = i + 1;
             cuota.vencimiento = venc;
             cuota.dias = dias;
+
             cuota.interes = calcularInteresCuota(p.tea, saldo, dias);
+
             cuota.capital = sim.cuotaMensual - cuota.interes;
 
-            if ((p.cuotadobleJulio && c.get(Calendar.MONTH) == 6) ||
-                    (p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == 11)) {
+            if ((p.cuotadobleJulio && c.get(Calendar.MONTH) == Calendar.JULY) ||
+                    (p.cuotaDobleDiciembre && c.get(Calendar.MONTH) == Calendar.DECEMBER)) {
+
                 cuota.capital += sim.cuotaMensual;
             }
 
             cuota.saldo = saldo - cuota.capital;
+
             cuota.cuota = cuota.interes + cuota.capital;
 
             //agrega la cuouta
