@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimuladorCredito.iml" filepath="$PROJECT_DIR$/SimuladorCredito.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simulador-credito.iml" filepath="$PROJECT_DIR$/simulador-credito.iml" />
     </modules>
   </component>
 </project>
