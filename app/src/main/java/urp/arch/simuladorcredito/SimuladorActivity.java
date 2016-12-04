@@ -200,7 +200,7 @@ public class SimuladorActivity extends AppCompatActivity {
         return  p;
     }
 
-    void gotoCuotas(View view){
+    public void gotoCuotas(View view){
         Intent intent = new Intent(this, SimulacionCuotasActivity.class);
         intent.putExtra(SIMULACION, simulacion);
         this.startActivity(intent);

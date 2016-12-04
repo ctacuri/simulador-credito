@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    void selectCreditType(View view) {
+    public void selectCreditType(View view) {
         Object creditType = view.getTag();
         if (null != creditType) {
 
